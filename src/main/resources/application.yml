@@ -23,6 +23,8 @@ spring:
             scope:
               - openid
               - profile
+              - message.read     # 👈 request this
+              # - message.write  # 👈 add if demo-client should POST
         provider:
           my-auth-server:
             issuer-uri: http://localhost:9000
