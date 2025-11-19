@@ -19,8 +19,11 @@ public class SecurityConfig {
                 )
                 .oauth2Login(Customizer.withDefaults()) // uses spring.security.oauth2.client config
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/").permitAll()
+                        .logoutSuccessUrl("http://localhost:9000/logout?client_id=my-client-id&post_logout_redirect_uri=http://localhost:8081/")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("DEMO_CLIENT_SESSION")
                 );
+//        .defaultSuccessUrl("/profile", true)  // 👈 always go to /profile
 
         return http.build();
     }

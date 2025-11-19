@@ -25,8 +25,15 @@
 
 <div th:if="${claims != null}">
     <h3>OIDC Claims</h3>
-    <pre th:text="${#temporals.toString(claims)}">Claims here</pre>
+    <pre>
+<span th:each="entry : ${claims}">
+    <span th:text="${entry.key}">key</span>:
+    <span th:text="${entry.value}">value</span>
+    <br/>
+</span>
+    </pre>
 </div>
+
 
 <p>
     <a th:href="@{/logout}">Logout</a>

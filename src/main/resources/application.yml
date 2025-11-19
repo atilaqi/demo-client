@@ -1,5 +1,9 @@
 server:
   port: 8081
+  servlet:
+    session:
+      cookie:
+        name: DEMO_CLIENT_SESSION
 
 spring:
   thymeleaf:
@@ -11,7 +15,7 @@ spring:
         registration:
           my-client:
             client-id: my-client-id
-            client-secret: my-client-secret
+            client-secret: secret123
             client-name: My Demo Client
             provider: my-auth-server
             authorization-grant-type: authorization_code
