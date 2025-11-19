@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Demo Client</title>
+</head>
+<body>
+<h1>Demo Client</h1>
+
+<p>This is a public page.</p>
+
+<p>
+    <a th:href="@{/oauth2/authorization/my-client}">Login via Auth Server</a>
+</p>
+
+<p>
+    <a th:href="@{/profile}">View Profile (requires login)</a>
+</p>
+
+</body>
+</html>

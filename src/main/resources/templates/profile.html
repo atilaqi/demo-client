@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Profile</title>
+</head>
+<body>
+<h1>Your Profile</h1>
+
+<div>
+    <p><strong>Client:</strong> <span th:text="${clientName}"></span></p>
+</div>
+
+<div th:if="${userName != null}">
+    <p><strong>Name:</strong> <span th:text="${userName}"></span></p>
+</div>
+
+<div th:if="${email != null}">
+    <p><strong>Email:</strong> <span th:text="${email}"></span></p>
+</div>
+
+<div>
+    <h3>Access Token</h3>
+    <pre th:text="${accessToken}"></pre>
+</div>
+
+<div th:if="${claims != null}">
+    <h3>OIDC Claims</h3>
+    <pre th:text="${#temporals.toString(claims)}">Claims here</pre>
+</div>
+
+<p>
+    <a th:href="@{/logout}">Logout</a>
+</p>
+
+</body>
+</html>

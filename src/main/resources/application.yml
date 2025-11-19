@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+spring:
+  thymeleaf:
+    cache: false
+
+  security:
+    oauth2:
+      client:
+        registration:
+          my-client:
+            client-id: my-client-id
+            client-secret: my-client-secret
+            client-name: My Demo Client
+            provider: my-auth-server
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - openid
+              - profile
+        provider:
+          my-auth-server:
+            issuer-uri: http://localhost:9000
+            # if issuer-uri doesn't work because of metadata, you can explicitly configure:
+            # authorization-uri: http://localhost:9000/oauth2/authorize
+            # token-uri: http://localhost:9000/oauth2/token
+            # jwk-set-uri: http://localhost:9000/oauth2/jwks
+            # user-info-uri: (for OIDC it's via id_token / userinfo)
+logging:
+  level:
+    org.springframework.security: DEBUG
